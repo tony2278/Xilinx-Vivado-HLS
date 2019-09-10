@@ -1,0 +1,213 @@
+
+
+================================================================
+== Vivado HLS Report for 'Mat2AXIvideo'
+================================================================
+* Date:           Thu Mar 21 11:20:58 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        test1
+* Solution:       solution1
+* Product family: aartix7
+* Target device:  xa7a12tcsg325-1q
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     6.610|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+---------+-----+---------+---------+
+    |    Latency    |    Interval   | Pipeline|
+    | min |   max   | min |   max   |   Type  |
+    +-----+---------+-----+---------+---------+
+    |    1|  2076841|    1|  2076841|   none  |
+    +-----+---------+-----+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------+-----+---------+----------+-----------+-----------+----------+----------+
+        |               |    Latency    | Iteration|  Initiation Interval  |   Trip   |          |
+        |   Loop Name   | min |   max   |  Latency |  achieved |   target  |   Count  | Pipelined|
+        +---------------+-----+---------+----------+-----------+-----------+----------+----------+
+        |- loop_height  |    0|  2076840| 3 ~ 1923 |          -|          -| 0 ~ 1080 |    no    |
+        | + loop_width  |    0|     1920|         2|          1|          1| 0 ~ 1920 |    yes   |
+        +---------------+-----+---------+----------+-----------+-----------+----------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 5
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 2, States = { 3 4 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond4_i)
+3 --> 
+	5  / (exitcond_i)
+	4  / (!exitcond_i)
+4 --> 
+	3  / true
+5 --> 
+	2  / true
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 6.61>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%tmp_user_V = alloca i1"   --->   Operation 6 'alloca' 'tmp_user_V' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecIFCore(i1* %AXI_video_strm_V_dest_V, [1 x i8]* @p_str, [11 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [26 x i8]* @p_str3)"   --->   Operation 7 'specifcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecIFCore(i1* %AXI_video_strm_V_id_V, [1 x i8]* @p_str, [11 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [26 x i8]* @p_str3)"   --->   Operation 8 'specifcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecIFCore(i1* %AXI_video_strm_V_last_V, [1 x i8]* @p_str, [11 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [26 x i8]* @p_str3)"   --->   Operation 9 'specifcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecIFCore(i1* %AXI_video_strm_V_user_V, [1 x i8]* @p_str, [11 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [26 x i8]* @p_str3)"   --->   Operation 10 'specifcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecIFCore(i3* %AXI_video_strm_V_strb_V, [1 x i8]* @p_str, [11 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [26 x i8]* @p_str3)"   --->   Operation 11 'specifcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecIFCore(i3* %AXI_video_strm_V_keep_V, [1 x i8]* @p_str, [11 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [26 x i8]* @p_str3)"   --->   Operation 12 'specifcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecIFCore(i24* %AXI_video_strm_V_data_V, [1 x i8]* @p_str, [11 x i8]* @p_str1, [1 x i8]* @p_str, i32 -1, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, [26 x i8]* @p_str3)"   --->   Operation 13 'specifcore' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %img_data_stream_2_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 14 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %img_data_stream_1_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 15 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i8* %img_data_stream_0_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 16 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i24* %AXI_video_strm_V_data_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 17 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i3* %AXI_video_strm_V_keep_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 18 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i3* %AXI_video_strm_V_strb_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 19 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %AXI_video_strm_V_user_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 20 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %AXI_video_strm_V_last_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 21 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %AXI_video_strm_V_id_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 22 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i1* %AXI_video_strm_V_dest_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)"   --->   Operation 23 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %img_rows_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 24 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i32* %img_cols_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [11 x i8]* @ScalarProp_str)"   --->   Operation 25 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (3.90ns)   --->   "%rows_V = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %img_rows_V)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:120]   --->   Operation 26 'read' 'rows_V' <Predicate = true> <Delay = 3.90> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.90> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 27 [1/1] (3.90ns)   --->   "%cols_V = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %img_cols_V)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:121]   --->   Operation 27 'read' 'cols_V' <Predicate = true> <Delay = 3.90> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.90> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%lhs_V_cast_i = zext i32 %cols_V to i33" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:135]   --->   Operation 28 'zext' 'lhs_V_cast_i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (2.70ns)   --->   "%ret_V = add i33 %lhs_V_cast_i, -1" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:135]   --->   Operation 29 'add' 'ret_V' <Predicate = true> <Delay = 2.70> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (1.66ns)   --->   "store i1 true, i1* %tmp_user_V"   --->   Operation 30 'store' <Predicate = true> <Delay = 1.66>
+ST_1 : Operation 31 [1/1] (1.66ns)   --->   "br label %0" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:125]   --->   Operation 31 'br' <Predicate = true> <Delay = 1.66>
+
+State 2 <SV = 1> <Delay = 3.38>
+ST_2 : Operation 32 [1/1] (0.00ns)   --->   "%t_V = phi i32 [ 0, %entry ], [ %i_V, %3 ]"   --->   Operation 32 'phi' 't_V' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 33 [1/1] (2.43ns)   --->   "%exitcond4_i = icmp eq i32 %t_V, %rows_V" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:125]   --->   Operation 33 'icmp' 'exitcond4_i' <Predicate = true> <Delay = 2.43> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.43> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 34 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 1080, i64 0)"   --->   Operation 34 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 35 [1/1] (2.70ns)   --->   "%i_V = add i32 %t_V, 1" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:125]   --->   Operation 35 'add' 'i_V' <Predicate = true> <Delay = 2.70> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "br i1 %exitcond4_i, label %.exit, label %1" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:125]   --->   Operation 36 'br' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([12 x i8]* @p_str10) nounwind" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:125]   --->   Operation 37 'specloopname' <Predicate = (!exitcond4_i)> <Delay = 0.00>
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%tmp_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str10)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:125]   --->   Operation 38 'specregionbegin' 'tmp_i' <Predicate = (!exitcond4_i)> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (1.66ns)   --->   "br label %2" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:126]   --->   Operation 39 'br' <Predicate = (!exitcond4_i)> <Delay = 1.66>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "ret void"   --->   Operation 40 'ret' <Predicate = (exitcond4_i)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 3.38>
+ST_3 : Operation 41 [1/1] (0.00ns)   --->   "%t_V_1 = phi i32 [ 0, %1 ], [ %j_V, %"operator>>.exit.i" ]"   --->   Operation 41 'phi' 't_V_1' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 42 [1/1] (2.43ns)   --->   "%exitcond_i = icmp eq i32 %t_V_1, %cols_V" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:126]   --->   Operation 42 'icmp' 'exitcond_i' <Predicate = true> <Delay = 2.43> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.43> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 43 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 1920, i64 0)"   --->   Operation 43 'speclooptripcount' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 44 [1/1] (2.70ns)   --->   "%j_V = add i32 %t_V_1, 1" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:126]   --->   Operation 44 'add' 'j_V' <Predicate = true> <Delay = 2.70> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 2.70> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 45 [1/1] (0.00ns)   --->   "br i1 %exitcond_i, label %3, label %"operator>>.exit.i"" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:126]   --->   Operation 45 'br' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 46 [1/1] (0.00ns)   --->   "%tmp_cast_i = zext i32 %t_V_1 to i33" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:135]   --->   Operation 46 'zext' 'tmp_cast_i' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_3 : Operation 47 [1/1] (2.46ns)   --->   "%axi_last_V = icmp eq i33 %tmp_cast_i, %ret_V" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:135]   --->   Operation 47 'icmp' 'axi_last_V' <Predicate = (!exitcond_i)> <Delay = 2.46> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 2.43> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+
+State 4 <SV = 3> <Delay = 3.90>
+ST_4 : Operation 48 [1/1] (0.00ns)   --->   "%tmp_user_V_load = load i1* %tmp_user_V" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:146]   --->   Operation 48 'load' 'tmp_user_V_load' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_4 : Operation 49 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecLoopName([11 x i8]* @p_str11) nounwind" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:126]   --->   Operation 49 'specloopname' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_4 : Operation 50 [1/1] (0.00ns)   --->   "%tmp_2_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([11 x i8]* @p_str11)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:126]   --->   Operation 50 'specregionbegin' 'tmp_2_i' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_4 : Operation 51 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str) nounwind" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:128]   --->   Operation 51 'specpipeline' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_4 : Operation 52 [1/1] (0.00ns)   --->   "%tmp_3_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str15)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:672->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:140]   --->   Operation 52 'specregionbegin' 'tmp_3_i' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_4 : Operation 53 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecProtocol(i32 0, [1 x i8]* @p_str) nounwind" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:676->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:140]   --->   Operation 53 'specprotocol' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_4 : Operation 54 [1/1] (3.90ns)   --->   "%tmp_1 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %img_data_stream_0_V)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:140]   --->   Operation 54 'read' 'tmp_1' <Predicate = (!exitcond_i)> <Delay = 3.90> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.90> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_4 : Operation 55 [1/1] (3.90ns)   --->   "%tmp_2 = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %img_data_stream_1_V)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:140]   --->   Operation 55 'read' 'tmp_2' <Predicate = (!exitcond_i)> <Delay = 3.90> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.90> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_4 : Operation 56 [1/1] (3.90ns)   --->   "%tmp = call i8 @_ssdm_op_Read.ap_fifo.volatile.i8P(i8* %img_data_stream_2_V)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:140]   --->   Operation 56 'read' 'tmp' <Predicate = (!exitcond_i)> <Delay = 3.90> <Core = "FIFO">   --->   Core 32 'FIFO' <Latency = 0> <II = 1> <Delay = 3.90> <Storage> <Opcode : 'read' 'write' 'nbread' 'nbwrite'> <Ports = 0> <Width = 32> <Depth = 2> <FIFO>
+ST_4 : Operation 57 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str15, i32 %tmp_3_i)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:681->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:140]   --->   Operation 57 'specregionend' 'empty' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_4 : Operation 58 [1/1] (0.00ns)   --->   "%tmp_data_V = call i24 @_ssdm_op_BitConcatenate.i24.i8.i8.i8(i8 %tmp, i8 %tmp_2, i8 %tmp_1)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_axi_io.h:78->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_axi_io.h:100->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:143]   --->   Operation 58 'bitconcatenate' 'tmp_data_V' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_4 : Operation 59 [1/1] (0.00ns)   --->   "call void @_ssdm_op_Write.ap_fifo.volatile.i24P.i3P.i3P.i1P.i1P.i1P.i1P(i24* %AXI_video_strm_V_data_V, i3* %AXI_video_strm_V_keep_V, i3* %AXI_video_strm_V_strb_V, i1* %AXI_video_strm_V_user_V, i1* %AXI_video_strm_V_last_V, i1* %AXI_video_strm_V_id_V, i1* %AXI_video_strm_V_dest_V, i24 %tmp_data_V, i3 -1, i3 undef, i1 %tmp_user_V_load, i1 %axi_last_V, i1 undef, i1 undef)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:146]   --->   Operation 59 'write' <Predicate = (!exitcond_i)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_4 : Operation 60 [1/1] (0.00ns)   --->   "%empty_55 = call i32 (...)* @_ssdm_op_SpecRegionEnd([11 x i8]* @p_str11, i32 %tmp_2_i)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:147]   --->   Operation 60 'specregionend' 'empty_55' <Predicate = (!exitcond_i)> <Delay = 0.00>
+ST_4 : Operation 61 [1/1] (1.66ns)   --->   "store i1 false, i1* %tmp_user_V"   --->   Operation 61 'store' <Predicate = (!exitcond_i)> <Delay = 1.66>
+ST_4 : Operation 62 [1/1] (0.00ns)   --->   "br label %2" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:126]   --->   Operation 62 'br' <Predicate = (!exitcond_i)> <Delay = 0.00>
+
+State 5 <SV = 3> <Delay = 0.00>
+ST_5 : Operation 63 [1/1] (0.00ns)   --->   "%empty_56 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str10, i32 %tmp_i)" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:148]   --->   Operation 63 'specregionend' 'empty_56' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 64 [1/1] (0.00ns)   --->   "br label %0" [D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:125]   --->   Operation 64 'br' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 6.61ns
+The critical path consists of the following:
+	fifo read on port 'img_cols_V' (D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:121) [34]  (3.91 ns)
+	'add' operation ('ret.V', D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:135) [36]  (2.7 ns)
+
+ <State 2>: 3.38ns
+The critical path consists of the following:
+	'icmp' operation ('exitcond4_i', D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:125) [41]  (2.44 ns)
+	blocking operation 0.942 ns on control path)
+
+ <State 3>: 3.38ns
+The critical path consists of the following:
+	'icmp' operation ('exitcond_i', D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:126) [51]  (2.44 ns)
+	blocking operation 0.942 ns on control path)
+
+ <State 4>: 3.91ns
+The critical path consists of the following:
+	fifo read on port 'img_data_stream_0_V' (D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:679->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_core.h:711->D:/Xilinx/Vivado/2018.3/common/technology/autopilot/hls/hls_video_io.h:140) [64]  (3.91 ns)
+
+ <State 5>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

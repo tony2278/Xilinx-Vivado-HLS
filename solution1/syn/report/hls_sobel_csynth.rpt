@@ -1,0 +1,178 @@
+
+
+================================================================
+== Vivado HLS Report for 'hls_sobel'
+================================================================
+* Date:           Thu Mar 21 11:21:03 2019
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        test1
+* Solution:       solution1
+* Product family: aartix7
+* Target device:  xa7a12tcsg325-1q
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.144|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+---------+-----+---------+----------+
+    |    Latency    |    Interval   | Pipeline |
+    | min |   max   | min |   max   |   Type   |
+    +-----+---------+-----+---------+----------+
+    |  160|  2089114|  159|  2089113| dataflow |
+    +-----+---------+-----+---------+----------+
+
+    + Detail: 
+        * Instance: 
+        +-------------------------+----------------------+-----+---------+-----+---------+---------+
+        |                         |                      |    Latency    |    Interval   | Pipeline|
+        |         Instance        |        Module        | min |   max   | min |   max   |   Type  |
+        +-------------------------+----------------------+-----+---------+-----+---------+---------+
+        |Sobel_U0                 |Sobel                 |  158|  2089112|  158|  2089112|   none  |
+        |AXIvideo2Mat_U0          |AXIvideo2Mat          |    3|  2080083|    3|  2080083|   none  |
+        |Mat2AXIvideo_U0          |Mat2AXIvideo          |    1|  2076841|    1|  2076841|   none  |
+        |Block_Mat_exit45_pro_U0  |Block_Mat_exit45_pro  |    0|        0|    0|        0|   none  |
+        +-------------------------+----------------------+-----+---------+-----+---------+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+-------+------+
+|       Name      | BRAM_18K| DSP48E|   FF  |  LUT |
++-----------------+---------+-------+-------+------+
+|DSP              |        -|      -|      -|     -|
+|Expression       |        -|      -|      -|     -|
+|FIFO             |        0|      -|     60|   378|
+|Instance         |        9|      -|   1620|  4168|
+|Memory           |        -|      -|      -|     -|
+|Multiplexer      |        -|      -|      -|     -|
+|Register         |        -|      -|      -|     -|
++-----------------+---------+-------+-------+------+
+|Total            |        9|      0|   1680|  4546|
++-----------------+---------+-------+-------+------+
+|Available        |       40|     40|  16000|  8000|
++-----------------+---------+-------+-------+------+
+|Utilization (%)  |       22|      0|     10|    56|
++-----------------+---------+-------+-------+------+
+
++ Detail: 
+    * Instance: 
+    +-------------------------+----------------------+---------+-------+------+------+
+    |         Instance        |        Module        | BRAM_18K| DSP48E|  FF  |  LUT |
+    +-------------------------+----------------------+---------+-------+------+------+
+    |AXIvideo2Mat_U0          |AXIvideo2Mat          |        0|      0|   276|   503|
+    |Block_Mat_exit45_pro_U0  |Block_Mat_exit45_pro  |        0|      0|     3|    62|
+    |Mat2AXIvideo_U0          |Mat2AXIvideo          |        0|      0|   203|   400|
+    |Sobel_U0                 |Sobel                 |        9|      0|  1138|  3203|
+    +-------------------------+----------------------+---------+-------+------+------+
+    |Total                    |                      |        9|      0|  1620|  4168|
+    +-------------------------+----------------------+---------+-------+------+------+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    +-----------------------+---------+---+----+------+-----+---------+
+    |          Name         | BRAM_18K| FF| LUT| Depth| Bits| Size:D*B|
+    +-----------------------+---------+---+----+------+-----+---------+
+    |img_0_cols_V_c14_U     |        0|  5|  43|     2|   32|       64|
+    |img_0_cols_V_c_U       |        0|  5|  43|     2|   32|       64|
+    |img_0_data_stream_0_U  |        0|  5|  20|     2|    8|       16|
+    |img_0_data_stream_1_U  |        0|  5|  20|     2|    8|       16|
+    |img_0_data_stream_2_U  |        0|  5|  20|     2|    8|       16|
+    |img_0_rows_V_c13_U     |        0|  5|  43|     2|   32|       64|
+    |img_0_rows_V_c_U       |        0|  5|  43|     2|   32|       64|
+    |img_1_cols_V_c_U       |        0|  5|  43|     4|   32|      128|
+    |img_1_data_stream_0_U  |        0|  5|  20|     2|    8|       16|
+    |img_1_data_stream_1_U  |        0|  5|  20|     2|    8|       16|
+    |img_1_data_stream_2_U  |        0|  5|  20|     2|    8|       16|
+    |img_1_rows_V_c_U       |        0|  5|  43|     4|   32|      128|
+    +-----------------------+---------+---+----+------+-----+---------+
+    |Total                  |        0| 60| 378|    28|  240|      608|
+    +-----------------------+---------+---+----+------+-----+---------+
+
+    * Expression: 
+    N/A
+
+    * Multiplexer: 
+    N/A
+
+    * Register: 
+    N/A
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++------------------------+-----+-----+--------------+-----------------+--------------+
+|        RTL Ports       | Dir | Bits|   Protocol   |  Source Object  |    C Type    |
++------------------------+-----+-----+--------------+-----------------+--------------+
+|input_V_data_V_dout     |  in |   24|    ap_fifo   |  input_V_data_V |    pointer   |
+|input_V_data_V_empty_n  |  in |    1|    ap_fifo   |  input_V_data_V |    pointer   |
+|input_V_data_V_read     | out |    1|    ap_fifo   |  input_V_data_V |    pointer   |
+|input_V_keep_V_dout     |  in |    3|    ap_fifo   |  input_V_keep_V |    pointer   |
+|input_V_keep_V_empty_n  |  in |    1|    ap_fifo   |  input_V_keep_V |    pointer   |
+|input_V_keep_V_read     | out |    1|    ap_fifo   |  input_V_keep_V |    pointer   |
+|input_V_strb_V_dout     |  in |    3|    ap_fifo   |  input_V_strb_V |    pointer   |
+|input_V_strb_V_empty_n  |  in |    1|    ap_fifo   |  input_V_strb_V |    pointer   |
+|input_V_strb_V_read     | out |    1|    ap_fifo   |  input_V_strb_V |    pointer   |
+|input_V_user_V_dout     |  in |    1|    ap_fifo   |  input_V_user_V |    pointer   |
+|input_V_user_V_empty_n  |  in |    1|    ap_fifo   |  input_V_user_V |    pointer   |
+|input_V_user_V_read     | out |    1|    ap_fifo   |  input_V_user_V |    pointer   |
+|input_V_last_V_dout     |  in |    1|    ap_fifo   |  input_V_last_V |    pointer   |
+|input_V_last_V_empty_n  |  in |    1|    ap_fifo   |  input_V_last_V |    pointer   |
+|input_V_last_V_read     | out |    1|    ap_fifo   |  input_V_last_V |    pointer   |
+|input_V_id_V_dout       |  in |    1|    ap_fifo   |   input_V_id_V  |    pointer   |
+|input_V_id_V_empty_n    |  in |    1|    ap_fifo   |   input_V_id_V  |    pointer   |
+|input_V_id_V_read       | out |    1|    ap_fifo   |   input_V_id_V  |    pointer   |
+|input_V_dest_V_dout     |  in |    1|    ap_fifo   |  input_V_dest_V |    pointer   |
+|input_V_dest_V_empty_n  |  in |    1|    ap_fifo   |  input_V_dest_V |    pointer   |
+|input_V_dest_V_read     | out |    1|    ap_fifo   |  input_V_dest_V |    pointer   |
+|output_V_data_V_din     | out |   24|    ap_fifo   | output_V_data_V |    pointer   |
+|output_V_data_V_full_n  |  in |    1|    ap_fifo   | output_V_data_V |    pointer   |
+|output_V_data_V_write   | out |    1|    ap_fifo   | output_V_data_V |    pointer   |
+|output_V_keep_V_din     | out |    3|    ap_fifo   | output_V_keep_V |    pointer   |
+|output_V_keep_V_full_n  |  in |    1|    ap_fifo   | output_V_keep_V |    pointer   |
+|output_V_keep_V_write   | out |    1|    ap_fifo   | output_V_keep_V |    pointer   |
+|output_V_strb_V_din     | out |    3|    ap_fifo   | output_V_strb_V |    pointer   |
+|output_V_strb_V_full_n  |  in |    1|    ap_fifo   | output_V_strb_V |    pointer   |
+|output_V_strb_V_write   | out |    1|    ap_fifo   | output_V_strb_V |    pointer   |
+|output_V_user_V_din     | out |    1|    ap_fifo   | output_V_user_V |    pointer   |
+|output_V_user_V_full_n  |  in |    1|    ap_fifo   | output_V_user_V |    pointer   |
+|output_V_user_V_write   | out |    1|    ap_fifo   | output_V_user_V |    pointer   |
+|output_V_last_V_din     | out |    1|    ap_fifo   | output_V_last_V |    pointer   |
+|output_V_last_V_full_n  |  in |    1|    ap_fifo   | output_V_last_V |    pointer   |
+|output_V_last_V_write   | out |    1|    ap_fifo   | output_V_last_V |    pointer   |
+|output_V_id_V_din       | out |    1|    ap_fifo   |  output_V_id_V  |    pointer   |
+|output_V_id_V_full_n    |  in |    1|    ap_fifo   |  output_V_id_V  |    pointer   |
+|output_V_id_V_write     | out |    1|    ap_fifo   |  output_V_id_V  |    pointer   |
+|output_V_dest_V_din     | out |    1|    ap_fifo   | output_V_dest_V |    pointer   |
+|output_V_dest_V_full_n  |  in |    1|    ap_fifo   | output_V_dest_V |    pointer   |
+|output_V_dest_V_write   | out |    1|    ap_fifo   | output_V_dest_V |    pointer   |
+|rows                    |  in |   32|    ap_none   |       rows      |    scalar    |
+|cols                    |  in |   32|    ap_none   |       cols      |    scalar    |
+|ap_clk                  |  in |    1| ap_ctrl_none |    hls_sobel    | return value |
+|ap_rst                  |  in |    1| ap_ctrl_none |    hls_sobel    | return value |
++------------------------+-----+-----+--------------+-----------------+--------------+
+
